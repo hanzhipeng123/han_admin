@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+
+spring:
+  application:
+    name: admin-login
