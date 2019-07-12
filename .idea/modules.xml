@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/admin-login/admin-login.iml" filepath="$PROJECT_DIR$/admin-login/admin-login.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-server/admin-server.iml" filepath="$PROJECT_DIR$/admin-server/admin-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/han_admin.iml" filepath="$PROJECT_DIR$/.idea/han_admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/han_admin.iml" filepath="$PROJECT_DIR$/han_admin.iml" />
     </modules>
   </component>
 </project>
