@@ -14,6 +14,6 @@ public class LoginService {
 
     @RequestMapping("/index")
     public String toLogin(){
-        return "index.html";
+        return "index";
     }
 }
