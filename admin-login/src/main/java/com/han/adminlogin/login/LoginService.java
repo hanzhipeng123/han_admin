@@ -1,14 +1,14 @@
 package com.han.adminlogin.login;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Description: TODO
  * @Auther: zhipeng.han@luckincoffee.com
  * @Date: 2019/7/12 15:33
  */
-@RestController
+@Controller
 @RequestMapping("/login")
 public class LoginService {
 

@@ -11,4 +11,5 @@ spring:
   application:
     name: admin-login
   thymeleaf:
-    prefix: classpath:/pages/
+    prefix: classpath:/templates/
+    suffix: .html
