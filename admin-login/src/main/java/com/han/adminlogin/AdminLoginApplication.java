@@ -1,5 +1,6 @@
 package com.han.adminlogin;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableEurekaClient
+@MapperScan("com.han.adminlogin.mapper")
 public class AdminLoginApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(AdminLoginApplication.class);
     public static void main(String[] args) {
