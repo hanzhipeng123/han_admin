@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/admin-login/admin-login.iml" filepath="$PROJECT_DIR$/admin-login/admin-login.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-server/admin-server.iml" filepath="$PROJECT_DIR$/admin-server/admin-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/han_admin.iml" filepath="$PROJECT_DIR$/han_admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mystarter/mystarter.iml" filepath="$PROJECT_DIR$/mystarter/mystarter.iml" />
     </modules>
   </component>
 </project>
