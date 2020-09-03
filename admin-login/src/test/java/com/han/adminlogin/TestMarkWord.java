@@ -188,7 +188,26 @@ public class TestMarkWord {
 		Thread.sleep(100);
 
 		t2.start();
+		t2.join();
 
+
+		Thread t3 = new Thread() {
+			@Override
+			public void run() {
+				System.out.println("t3 加锁前的 mark word: \n" + ClassLayout.parseInstance(object).toPrintable());
+				synchronized (object) {
+					try {
+						TimeUnit.SECONDS.sleep(1);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					System.out.println("t3 加锁后的 mark word，");
+					System.out.println(ClassLayout.parseInstance(object).toPrintable());
+				}
+			}
+		};
+		t3.start();
+		t3.join();
 
 		/**
 		 * 控制台输出：
@@ -219,7 +238,7 @@ public class TestMarkWord {
 		 * Instance size: 16 bytes
 		 * Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
 		 *
-		 * t2 加锁后的 mark word，膨胀到重量锁，重量锁执行完成不会释放，锁标识还是重量锁
+		 * t2 加锁后的 mark word，膨胀到重量锁，重量锁执行完成不会释放，锁标识还是重量锁，后面再来加锁会怎么样
 		 *  OFFSET  SIZE   TYPE DESCRIPTION                               VALUE
 		 *       0     4        (object header)                           ea cd 8d 17 (11101010 11001101 10001101 00010111) (395169258)
 		 *       4     4        (object header)                           00 00 00 00 (00000000 00000000 00000000 00000000) (0)

@@ -1,7 +1,7 @@
 package com.han.adminlogin;
 
 import com.han.adminlogin.config.mybatis.EnableMybatis;
-import com.sunq.starter.mystarter.starter.MyStartService;
+//import com.sunq.starter.mystarter.starter.MyStartService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,12 +34,12 @@ public class AdminLoginApplication {
                 .build();
     }
 
-    @Bean
-    public CommandLineRunner commandLineRunner(MyStartService myStartService){
-    	return (args) -> {
-			System.out.println(myStartService.getServiceName());
-		};
-	}
+//    @Bean
+//    public CommandLineRunner commandLineRunner(MyStartService myStartService){
+//    	return (args) -> {
+//			System.out.println(myStartService.getServiceName());
+//		};
+//	}
 
 
 }
