@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.han.adminserver.mapper.InvMapper">
+    <resultMap id="BaseResultMap" type="com.han.adminserver.entity.Inv">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="skuCode" jdbcType="VARCHAR" property="skuCode" />
+        <result column="qty" jdbcType="INTEGER" property="qty" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        `id`,`skuCode`,`qty`
+    </sql>
+
+    <insert id="insert" parameterType="com.han.adminserver.entity.Inv">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into inv 
+            (`id`,`skuCode`,`qty`)
+        values 
+            (#{id,jdbcType=INTEGER},#{skuCode,jdbcType=VARCHAR},#{qty,jdbcType=INTEGER})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.han.adminserver.entity.Inv">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into inv 
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">`id`,</if>
+                <if test="skuCode != null">`skuCode`,</if>
+                <if test="qty != null">`qty`,</if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null"> #{id,jdbcType=INTEGER},</if>
+                <if test="skuCode != null"> #{skuCode,jdbcType=INTEGER},</if>
+                <if test="qty != null"> #{qty,jdbcType=INTEGER},</if>
+            </trim>
+    </insert>
+
+    <update id="updateByPK" parameterType="com.han.adminserver.entity.Inv">
+        update inv
+            <set>
+            `skuCode`			= #{skuCode,jdbcType=VARCHAR},
+            `qty`			= #{qty,jdbcType=INTEGER},
+            </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByPKSelective" parameterType="com.han.adminserver.entity.Inv">
+        update inv
+            <set>
+            <if test="skuCode != null">`skuCode` = #{skuCode,jdbcType=VARCHAR},</if>
+            <if test="qty != null">`qty` = #{qty,jdbcType=INTEGER},</if>
+            </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteByPK" parameterType="java.lang.Integer">
+        delete from inv
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <select id="selectByPK" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+            from inv
+            where id = #{id,jdbcType=INTEGER}
+    </select>
+
+</mapper>

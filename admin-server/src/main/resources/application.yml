@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9911
 
 eureka:
   instance:
@@ -13,3 +13,19 @@ eureka:
 spring:
   application:
     name: admin-server
+
+
+datasource:
+  multi-db1:
+      type: com.alibaba.druid.pool.DruidDataSource
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/multi_db1?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  multi-db2:
+      type: com.alibaba.druid.pool.DruidDataSource
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/multi_db2?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+

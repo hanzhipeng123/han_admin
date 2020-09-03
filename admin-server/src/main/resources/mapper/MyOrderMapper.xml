@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.han.adminserver.mapper.MyOrderMapper">
+    <resultMap id="BaseResultMap" type="com.han.adminserver.entity.MyOrder">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="orderNo" jdbcType="VARCHAR" property="orderNo" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        `id`,`orderNo`,`remark`
+    </sql>
+
+    <insert id="insert" parameterType="com.han.adminserver.entity.MyOrder">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into my_order 
+            (`id`,`orderNo`,`remark`)
+        values 
+            (#{id,jdbcType=INTEGER},#{orderNo,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.han.adminserver.entity.MyOrder">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into my_order 
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">`id`,</if>
+                <if test="orderNo != null">`orderNo`,</if>
+                <if test="remark != null">`remark`,</if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null"> #{id,jdbcType=INTEGER},</if>
+                <if test="orderNo != null"> #{orderNo,jdbcType=INTEGER},</if>
+                <if test="remark != null"> #{remark,jdbcType=INTEGER},</if>
+            </trim>
+    </insert>
+
+    <update id="updateByPK" parameterType="com.han.adminserver.entity.MyOrder">
+        update my_order
+            <set>
+            `orderNo`			= #{orderNo,jdbcType=VARCHAR},
+            `remark`			= #{remark,jdbcType=VARCHAR},
+            </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByPKSelective" parameterType="com.han.adminserver.entity.MyOrder">
+        update my_order
+            <set>
+            <if test="orderNo != null">`orderNo` = #{orderNo,jdbcType=VARCHAR},</if>
+            <if test="remark != null">`remark` = #{remark,jdbcType=VARCHAR},</if>
+            </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteByPK" parameterType="java.lang.Integer">
+        delete from my_order
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <select id="selectByPK" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+            from my_order
+            where id = #{id,jdbcType=INTEGER}
+    </select>
+
+</mapper>

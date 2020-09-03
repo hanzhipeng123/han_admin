@@ -42,6 +42,38 @@ public class UserInfoController {
 
 	}
 
+	@GetMapping("/test")
+	public ResponseModel testTransaction(){
+		try {
+			userInfoService.testTransaction();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		ResponseModel res = new ResponseModel();
+		res.setCode("998");
+		res.setCode("测试成功");
+		return res;
+	}
+
+
+	@GetMapping("/exception")
+	public ResponseModel exception(){
+		try {
+			System.out.println("---------start");
+
+			int a = 1/0;
+
+
+			System.out.println("---------end");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		ResponseModel res = new ResponseModel();
+		res.setCode("200");
+		res.setCode("测试成功");
+		return res;
+	}
+
 
 
 }

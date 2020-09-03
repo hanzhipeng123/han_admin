@@ -2,5 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.han.adminlogin.mapper.UserInfoMapper">
 
+    <update id="batchUpdate">
+        <foreach collection="userList" item="user" index="index" separator=";">
+            update user_info
+            set mobile = #{user.mobile},nickname = #{user.nickname}
+            where userId = #{user.userId}
+        </foreach>
+    </update>
 
 </mapper>
