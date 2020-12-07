@@ -1,3 +1,4 @@
+/*
 package com.han.adminserver.configure;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -13,11 +14,13 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+*/
 /**
  *@author sunq
  *@date2020/8/21 15:42
  *@Description 设置配置
- */
+ *//*
+
 @Configuration
 public class MultiDataSource {
 
@@ -65,3 +68,4 @@ public class MultiDataSource {
 
 
 }
+*/

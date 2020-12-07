@@ -1,10 +1,13 @@
+/*
 package com.han.adminserver.configure;
 
+*/
 /**
  *@author sunq
  *@date2020/8/24 14:31
  *@Description 通过 ThreadLocal 获取和设置线程安全的数据源 key
- */
+ *//*
+
 public class DynamicDataSourceContextHolder {
 
 	private static final ThreadLocal<String> contextHolder = new ThreadLocal<>();
@@ -26,3 +29,4 @@ public class DynamicDataSourceContextHolder {
 
 
 }
+*/

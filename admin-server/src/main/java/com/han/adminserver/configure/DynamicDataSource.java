@@ -1,3 +1,4 @@
+/*
 package com.han.adminserver.configure;
 
 import org.slf4j.Logger;
@@ -7,11 +8,13 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+*/
 /**
  *@author sunq
  *@date2020/8/21 15:56
  *@Description 动态数据源路由实现
- */
+ *//*
+
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
 	private static final Logger logger = LoggerFactory.getLogger(DynamicDataSource.class);
@@ -90,3 +93,4 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
 
 
 }
+*/

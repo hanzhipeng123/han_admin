@@ -14,18 +14,26 @@ spring:
   application:
     name: admin-server
 
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&allowMultiQueries=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+#datasource:
+#  multi-db1:
+#      type: com.alibaba.druid.pool.DruidDataSource
+#      jdbc-url: jdbc:mysql://127.0.0.1:3306/multi_db1?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+#      username: root
+#      password: 123456
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#  multi-db2:
+#      type: com.alibaba.druid.pool.DruidDataSource
+#      jdbc-url: jdbc:mysql://127.0.0.1:3306/multi_db2?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+#      username: root
+#      password: 123456
+#      driver-class-name: com.mysql.jdbc.Driver
 
-datasource:
-  multi-db1:
-      type: com.alibaba.druid.pool.DruidDataSource
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/multi_db1?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
-      username: root
-      password: 123456
-      driver-class-name: com.mysql.cj.jdbc.Driver
-  multi-db2:
-      type: com.alibaba.druid.pool.DruidDataSource
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/multi_db2?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
-      username: root
-      password: 123456
-      driver-class-name: com.mysql.jdbc.Driver
-
+## mybatis配置
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml

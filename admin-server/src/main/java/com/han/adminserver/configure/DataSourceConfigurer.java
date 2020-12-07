@@ -1,3 +1,4 @@
+/*
 package com.han.adminserver.configure;
 
 import com.alibaba.druid.pool.DruidDataSource;
@@ -21,11 +22,13 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+*/
 /**
  *@author sunq
  *@date2020/8/24 14:41
  *@Description 数据源配置类
- */
+ *//*
+
 
 @Configuration
 @EnableConfigurationProperties(MybatisProperties.class)
@@ -107,3 +110,4 @@ public class DataSourceConfigurer {
 
 
 }
+*/

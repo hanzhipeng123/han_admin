@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  *@author sunq
  *@date2019/8/5 17:22
@@ -72,6 +74,13 @@ public class UserInfoController {
 		res.setCode("200");
 		res.setCode("测试成功");
 		return res;
+	}
+
+
+	@GetMapping("/timeOut")
+	public String testFeignTimeOut() throws InterruptedException {
+		TimeUnit.SECONDS.sleep(50);
+		return "返回数据成功！";
 	}
 
 

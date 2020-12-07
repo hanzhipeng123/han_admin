@@ -3,6 +3,8 @@ package com.ThreadPool;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 /**
  *@author sunq
@@ -55,7 +57,12 @@ public class TestMain {
 
 		System.out.println("日期：" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime()));
 
+//		ScheduledExecutorService executorService = Executors.newScheduledThreadPool();
 
+
+//		executorService.scheduleAtFixedRate();
+//
+//		executorService.scheduleWithFixedDelay();
 
 
 	}

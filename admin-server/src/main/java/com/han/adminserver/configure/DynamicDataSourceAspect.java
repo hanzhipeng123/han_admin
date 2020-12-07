@@ -1,3 +1,4 @@
+/*
 package com.han.adminserver.configure;
 
 import com.alibaba.fastjson.JSON;
@@ -10,11 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+*/
 /**
  *@author sunq
  *@date2020/8/21 16:13
  *@Description
- */
+ *//*
+
 
 @Component
 @Aspect
@@ -25,7 +28,7 @@ public class DynamicDataSourceAspect {
 
 	private final String[] QUERY_PREFIX = {"select"};
 
-	@Pointcut("execution( * com.han.adminserver.mapper.*(..))")
+//	@Pointcut("execution( * com.han.adminserver.mapper.*(..))")
 	public void mapperAspect(){}
 
 
@@ -66,3 +69,4 @@ public class DynamicDataSourceAspect {
 
 
 }
+*/

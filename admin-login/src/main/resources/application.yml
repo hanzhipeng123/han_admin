@@ -5,7 +5,7 @@ eureka:
     hostname: localhost
   client:
     serviceUrl:
-      defaultZone: http://localhost:8080/eureka/
+      defaultZone: http://localhost:9911/eureka/
     register-with-eureka: false
 
 ## mybatis配置
@@ -30,6 +30,6 @@ spring:
     port: 8081
     password:
 
-sunq:
-  starter:
-    enabled: true
+#sunq:
+#  starter:
+#    enabled: true
