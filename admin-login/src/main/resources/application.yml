@@ -24,11 +24,15 @@ spring:
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      stat-logger:
   redis:
     database: 0
     host: 106.14.185.252
     port: 8081
     password:
+logging:
+  level: info
 
 #sunq:
 #  starter:

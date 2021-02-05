@@ -1,14 +1,14 @@
 package com.socket;
 
+import io.netty.buffer.ByteBuf;
 import org.apache.commons.lang.ArrayUtils;
+import sun.misc.Cleaner;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -36,31 +36,23 @@ public class TestAddress {
 			Enumeration<InetAddress> inetAddresses = networkInterface.getInetAddresses();
 			while (inetAddresses.hasMoreElements()){
 				System.out.println(networkInterface.getDisplayName() + " - " + inetAddresses.nextElement());
+
 			}
 		}*/
 
 		/*String str = "pages/home/home?type=live&roomId=15";
 		System.out.println(str);*/
 
+		Date date = new Date(System.currentTimeMillis());
+		int hours = date.getHours();
+		System.out.println(hours);
 
-		List<String> list = new ArrayList();
-		list.add("1111");
-		list.add("2222");
-		list.add("3333");
-		list.add("4444");
-		String a = "";
-		System.out.println(a);
-
-
-		/*List<Long> idList = Arrays.asList(1L, 2L, 3L);
-		String idString = String.join(",", idList.stream().map(String::valueOf).collect(Collectors.toList()));
-		System.out.println(idString);
-		console--------------------------------------------------------------------------------
-		1,2,3*/
-//		a = list.stream().reduce(",", String::concat);
-		a = String.join(",", list.stream().map(String :: valueOf).collect(Collectors.toList()));
-
-		System.out.println(a);
+		Calendar cleaner = Calendar.getInstance();
+		cleaner.setTimeInMillis(System.currentTimeMillis());
+		int h1 = cleaner.get(Calendar.HOUR_OF_DAY);
+		System.out.println(h1);
+		int h2 = cleaner.get(Calendar.HOUR);
+		System.out.println(h2);
 
 	}
 

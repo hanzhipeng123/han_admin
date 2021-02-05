@@ -1,5 +1,9 @@
 package com.socket;
 
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.AbstractNioChannel;
+import io.netty.channel.nio.NioEventLoopGroup;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -39,6 +43,8 @@ public class ServerNio {
 		serverSocketChannel.bind(new InetSocketAddress(InetAddress.getLocalHost(),PORT));
 		// 5. 注册接收事件
 		serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+
+		EventLoopGroup group = new NioEventLoopGroup();
 
 		// 与客户端建立连接
 		while (selector.select() > 0) {

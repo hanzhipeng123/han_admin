@@ -37,22 +37,25 @@ public class EchoServer {
 	}
 
 	public void start() throws InterruptedException {
-
 		final EchoServerHandler handler = new EchoServerHandler();
 		// 线程组
 		EventLoopGroup group = new NioEventLoopGroup();
 		try {
 			// 服务器端启动准备
 			ServerBootstrap b = new ServerBootstrap();
-			// 指定使用nio的通信模式，
-			b.group(group).channel(NioServerSocketChannel.class)
-					.localAddress(new InetSocketAddress(port))		// 监听端口
+			// 服务器端启动必须，指定使用nio的通信模式，
+			b.group(group)		// 将线程组传入
+					.channel(NioServerSocketChannel.class)		// 指定使用NIO进行网络传输
+					.localAddress(new InetSocketAddress(port))		// 指定服务器监听端口监听端口
+					// 服务端每接受到一个连接请求，就会启动一个socket通信，也就是channel，下面的代码作用就是为这个子channel增加handler
 					.childHandler(new ChannelInitializer<SocketChannel>() {
 				@Override
 				protected void initChannel(SocketChannel sc) throws Exception {
+					// 将handler添加到子channel的pipeline的尾部
 					sc.pipeline().addLast(handler);
 				}
 			});
+
 			// 异步绑定到服务器，sync会阻塞到完成
 			ChannelFuture future = b.bind().sync();
 			// 阻塞当前线程，直到服务器的channel被关闭
